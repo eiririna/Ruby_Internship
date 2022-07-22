@@ -13,17 +13,18 @@ class Vector
     if vector.size != other.vector.size
       nil
     else
-      vector.each_with_index.map { |elem, i| elem + other.vector[i] }
+      res = vector.each_with_index.map { |elem, i| elem + other.vector[i] }
     end
+    Vector.new(res)
   end
 
   def subtract(other)
     if vector.size != other.vector.size
       nil
     else
-      vector.each_with_index.map { |elem, i| elem - other.vector[i] }
+      res = vector.each_with_index.map { |elem, i| elem - other.vector[i] }
     end
-  end
+    Vector.new(res)
 
   def dot(other)
     if vector.size != other.vector.size
