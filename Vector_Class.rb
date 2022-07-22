@@ -25,7 +25,8 @@ class Vector
       res = vector.each_with_index.map { |elem, i| elem - other.vector[i] }
     end
     Vector.new(res)
-
+  end
+  
   def dot(other)
     if vector.size != other.vector.size
       nil
