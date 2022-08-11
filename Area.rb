@@ -1,6 +1,4 @@
 class Rectangle
-  attr_reader :height, :width
-
   def initialize(height, width)
     @height = height
     @width = width
@@ -18,8 +16,6 @@ class Square < Rectangle
 end
 
 class Triangle
-  attr_reader :height, :base
-
   def initialize(height, base)
     @height = height
     @base = base
@@ -31,8 +27,6 @@ class Triangle
 end
 
 class Circle
-  attr_reader :radius
-
   def initialize(radius)
     @radius = radius
   end
@@ -43,8 +37,6 @@ class Circle
 end
 
 class CustomShape
-  attr_reader :area
-
   def initialize(area)
     @area = area
   end
@@ -54,7 +46,11 @@ class CustomShape
   end
 end
 
+def <=>(other_shape)
+  self.area <=> other_shape.area
+end
+
 shapes = [Square.new(5), Rectangle.new(3, 8), Triangle.new(4, 8), Circle.new(3), CustomShape.new(24.5)]
-sorted = shapes.sort {|a, b| a.area <=> b.area}
-p sorted
-p sorted.map{|figure| figure.area}
+
+puts shapes.sort
+#puts shapes.sort.map {|figure| figure.area}
