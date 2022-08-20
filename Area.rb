@@ -1,4 +1,11 @@
-class Rectangle
+class Shape
+  include Comparable
+  def <=>(shape)
+    self.area <=> shape.area
+  end
+end
+
+class Rectangle < Shape
   def initialize(height, width)
     @height = height
     @width = width
@@ -15,7 +22,7 @@ class Square < Rectangle
   end
 end
 
-class Triangle
+class Triangle < Shape
   def initialize(height, base)
     @height = height
     @base = base
@@ -26,7 +33,7 @@ class Triangle
   end
 end
 
-class Circle
+class Circle < Shape
   def initialize(radius)
     @radius = radius
   end
@@ -36,7 +43,7 @@ class Circle
   end
 end
 
-class CustomShape
+class CustomShape < Shape
   def initialize(area)
     @area = area
   end
@@ -44,10 +51,6 @@ class CustomShape
   def area
     @area
   end
-end
-
-def <=>(other_shape)
-  self.area <=> other_shape.area
 end
 
 shapes = [Square.new(5), Rectangle.new(3, 8), Triangle.new(4, 8), Circle.new(3), CustomShape.new(24.5)]
